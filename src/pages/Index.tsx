@@ -4,6 +4,7 @@ import { Card } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import Icon from '@/components/ui/icon';
+import PriceCalculator from '@/components/PriceCalculator';
 
 const Index = () => {
   const [formData, setFormData] = useState({
@@ -27,6 +28,7 @@ const Index = () => {
             <a href="#tech" className="text-muted-foreground hover:text-foreground transition-colors">Технологии</a>
             <a href="#benefits" className="text-muted-foreground hover:text-foreground transition-colors">Преимущества</a>
             <a href="#pricing" className="text-muted-foreground hover:text-foreground transition-colors">Цены</a>
+            <a href="#calculator" className="text-muted-foreground hover:text-foreground transition-colors">Калькулятор</a>
             <a href="#contact" className="text-muted-foreground hover:text-foreground transition-colors">Контакты</a>
           </div>
           <Button className="bg-accent text-accent-foreground hover:bg-accent/90">
@@ -48,7 +50,11 @@ const Index = () => {
                 Технологии будущего для вашего комфорта сегодня.
               </p>
               <div className="flex gap-4">
-                <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 px-8">
+                <Button 
+                  size="lg" 
+                  className="bg-primary text-primary-foreground hover:bg-primary/90 px-8"
+                  onClick={() => document.getElementById('calculator')?.scrollIntoView({ behavior: 'smooth' })}
+                >
                   Рассчитать стоимость
                 </Button>
                 <Button size="lg" variant="outline" className="border-2">
@@ -352,7 +358,23 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="contact" className="py-20 px-6">
+      <section id="calculator" className="py-20 px-6">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-12 animate-fade-in">
+            <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-4">
+              Калькулятор стоимости
+            </h2>
+            <p className="text-xl text-muted-foreground">
+              Узнайте предварительную стоимость вашего проекта
+            </p>
+          </div>
+          <div className="animate-scale-in">
+            <PriceCalculator />
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" className="py-20 px-6 bg-muted/30">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-12 animate-fade-in">
             <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-4">
